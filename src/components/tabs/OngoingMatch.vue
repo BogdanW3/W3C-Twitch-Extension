@@ -145,11 +145,6 @@ import MatchResult from "@/components/MatchResult.vue";
 import RecentMatch from "@/components/RecentMatch.vue";
 import usePlayerAka from "@/composables/usePlayerAka";
 
-type Props = {
-  battleTag: string;
-  currentSeason: number;
-};
-
 type State = {
   ongoingMatch: OngoingMatch | null;
   hero: PlayerInTeam | null;
@@ -165,6 +160,7 @@ export default defineComponent({
   props: {
     battleTag: {
       type: String,
+      required: true,
       default: ""
     },
     currentSeason: {
@@ -172,7 +168,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup(props: Props) {
+  setup(props) {
     const selectedMatchId = ref(0);
     const wonMatchesAgainstOpponent: Array<Match> = [];
     const lostMatchesAgainstOpponent: Array<Match> = [];

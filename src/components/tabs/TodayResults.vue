@@ -51,12 +51,6 @@ import MatchResult from "@/components/MatchResult.vue";
 import RecentMatch from "@/components/RecentMatch.vue";
 import WButton from "@/components/common/WButton.vue";
 
-type Props = {
-  streamStartedAt: string;
-  battleTag: string;
-  currentSeason: number;
-};
-
 export default defineComponent({
   name: "TodayResults",
   components: { WButton, RecentMatch, MatchResult },
@@ -74,7 +68,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup(props: Props) {
+  setup(props) {
     const selectedMatchId = ref("");
     const state = reactive({ todayMatches: [] as Match[] });
 

@@ -38,7 +38,7 @@ export async function fetchOngoingMatch(
   const response = await fetch(url);
 
   if (response.status === 204) {
-    null;
+    return null;
   }
 
   return response.json();

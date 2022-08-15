@@ -28,17 +28,17 @@ export const heroNames = {
 };
 
 /* eslint-disable @typescript-eslint/camelcase */
-export const mapNames = {
-  Amazonia: "Amazonia",
-  AutumnLeaves: "Autumn Leaves",
-  ConcealedHill: "Concealed Hill",
-  EchoIsles: "Echo Isles",
-  LastRefuge: "Last Refuge",
-  NorthernIsles: "Northern Isles",
-  RuinsOfAzshara: "Ruins of Azshara",
-  TerenasStandLV: "Terenas Stand LV",
-  Tidehunters: "Tidehunters",
-  TurtleRock: "Turtle Rock",
-  TwistedMeadows: "Twisted Meadows"
-};
+export enum mapNames {
+  Amazonia = "Amazonia",
+  AutumnLeaves = "Autumn Leaves",
+  ConcealedHill = "Concealed Hill",
+  EchoIsles = "Echo Isles",
+  LastRefuge = "Last Refuge",
+  NorthernIsles = "Northern Isles",
+  RuinsOfAzshara = "Ruins of Azshara",
+  TerenasStandLV = "Terenas Stand LV",
+  Tidehunters = "Tidehunters",
+  TurtleRock = "Turtle Rock",
+  TwistedMeadows = "Twisted Meadows"
+}
 /* eslint-enable @typescript-eslint/camelcase */

@@ -24,7 +24,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed } from "vue";
+import { computed, defineComponent } from "vue";
 import { getRaceIcon } from "@/utils/assets";
 
 const leagues = [
@@ -47,19 +47,7 @@ function calculateWinProbability(mmr1: number, mmr2: number): number {
   return Math.round(winProbability * 100) / 100;
 }
 
-type Props = {
-  name: string;
-  wins: number;
-  losses: number;
-  rank: number;
-  mmr: number;
-  opponentMmr: number;
-  rankingPoints: number;
-  leagueId: number;
-  aka: string | undefined;
-};
-
-export default {
+export default defineComponent({
   name: "PlayerRanking",
   props: {
     name: {
@@ -103,7 +91,7 @@ export default {
       default: ""
     }
   },
-  setup(props: Props) {
+  setup(props) {
     const winProbability = computed(() => {
       return calculateWinProbability(props.mmr, props.opponentMmr);
     });
@@ -126,7 +114,7 @@ export default {
       getRaceIcon
     };
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>
