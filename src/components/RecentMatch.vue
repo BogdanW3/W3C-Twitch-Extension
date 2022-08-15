@@ -244,7 +244,7 @@
       <div class="map-stats">
         <div style="text-align: right">
           Map:<br />
-          {{ mapNames[state.lastMatch.match.map] }}
+          {{ getMapName(state.lastMatch.match.map) }}
         </div>
         <MiniMap :map="state.lastMatch.match.map" />
         <div style="text-align: left">
@@ -272,10 +272,11 @@ function getHeroIcon(hero: string) {
   return getAsset(`heroes/${hero}.png`);
 }
 
-type Props = {
-  battleTag: string;
-  matchId: string;
-};
+function getMapName(mapName: string) {
+  const translatedName = mapNames[mapName as keyof typeof mapNames];
+  if (translatedName) return translatedName;
+  return mapName;
+}
 
 export default defineComponent({
   name: "RecentMatch",
@@ -290,7 +291,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup(props: Props) {
+  setup(props) {
     const { fetchPlayerAka, playerAkas } = usePlayerAka();
 
     const state = reactive({ lastMatch: {} as MatchDetail });
@@ -363,7 +364,7 @@ export default defineComponent({
       getHeroIcon,
       getRaceIcon,
       heroNames,
-      mapNames,
+      getMapName,
       playerAkas
     };
   }

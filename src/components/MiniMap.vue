@@ -1,6 +1,6 @@
 <template>
   <div class="map">
-    <img :src="getMinimap(map)" alt="Mini Map" />
+    <img :src="getMinimap(map)" :alt="map" />
     <div class="minimap-overlay" />
   </div>
 </template>
@@ -9,7 +9,12 @@ import { defineComponent } from "vue";
 import { getAsset } from "@/utils/assets";
 
 function getMinimap(map: string) {
-  return getAsset(`maps/${map}.png`);
+  try {
+    return getAsset(`maps/${map}.png`);
+  } catch {
+    console.error("Could not load minimap for " + map);
+    return null;
+  }
 }
 
 export default defineComponent({
